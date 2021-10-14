@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: booking-app-mysql-db
+    image: mysql:8.0.26
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'bookingapp'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin-pass'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    volumes:
+      - '${TMP_DIR}/mysql:/var/lib/mysql'
+      - './db/schema.sql:/docker-entrypoint-initdb.d/1.sql'
+      - './db/testData.sql:/docker-entrypoint-initdb.d/2.sql'
+

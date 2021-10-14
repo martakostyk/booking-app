@@ -10,8 +10,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
-    implementation 'org.postgresql:postgresql:42.2.24'
+    annotationProcessor('org.immutables:value:2.8.8')
+    implementation ('org.springframework.boot:spring-boot-starter-web:2.5.5') {
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+    }
+    implementation "org.springframework.boot:spring-boot-starter-undertow:2.5.5"
+
+    implementation 'mysql:mysql-connector-java:8.0.26'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
 
     compileOnly 'org.immutables:value:2.8.8'
 }

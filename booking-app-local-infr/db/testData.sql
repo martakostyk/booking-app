@@ -1,0 +1,2 @@
+INSERT INTO `bookingapp`.`reservations` (name, date_time, creation_timestamp) VALUES ('Marta', '2021-11-02 10:30:00', NOW());
+INSERT INTO `bookingapp`.`reservations` (name, date_time, creation_timestamp) VALUES ('Ola', '2021-11-02 11:30:00', NOW());
