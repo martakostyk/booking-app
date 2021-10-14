@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'pl.mrtk'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
+    implementation 'org.postgresql:postgresql:42.2.24'
+
+    compileOnly 'org.immutables:value:2.8.8'
+}
+
+test {
+    useJUnitPlatform()
+}
