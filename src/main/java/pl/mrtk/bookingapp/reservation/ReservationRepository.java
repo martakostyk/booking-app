@@ -1,6 +1,10 @@
 package pl.mrtk.bookingapp.reservation;
 
+import java.util.Set;
+
 public interface ReservationRepository {
 
-    void insert(ReservationData reservationData);
+    void add(ReservationData reservationData);
+
+    Set<ReservationDto> getAll();
 }

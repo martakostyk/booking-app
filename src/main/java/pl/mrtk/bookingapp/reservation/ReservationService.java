@@ -2,6 +2,8 @@ package pl.mrtk.bookingapp.reservation;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class ReservationService {
 
@@ -12,6 +14,10 @@ public class ReservationService {
     }
 
     public void createReservation(ReservationData reservationData) {
-        reservationRepository.insert(reservationData);
+        reservationRepository.add(reservationData);
+    }
+
+    public Set<ReservationDto> getReservations() {
+        return reservationRepository.getAll();
     }
 }

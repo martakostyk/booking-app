@@ -5,10 +5,10 @@ import org.immutables.value.Value;
 import java.time.LocalDateTime;
 
 @Value.Immutable
-public interface Reservation {
+public interface ReservationDto {
 
-    long getId();
     String getName();
     LocalDateTime getDateTime();
     LocalDateTime getCreationTimestamp();
+
 }

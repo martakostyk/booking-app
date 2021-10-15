@@ -1,9 +1,8 @@
 package pl.mrtk.bookingapp.reservation;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/reservations")
@@ -18,5 +17,10 @@ public class ReservationController {
     @PostMapping
     public void createReservation(@RequestBody ReservationData reservationData) {
         reservationService.createReservation(reservationData);
+    }
+
+    @GetMapping
+    public Set<ReservationDto> getReservations() {
+        return reservationService.getReservations();
     }
 }
