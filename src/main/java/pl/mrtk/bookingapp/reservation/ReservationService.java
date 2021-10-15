@@ -12,6 +12,6 @@ public class ReservationService {
     }
 
     public void createReservation(ReservationData reservationData) {
-        reservationRepository.add(reservationData);
+        reservationRepository.insert(reservationData);
     }
 }
