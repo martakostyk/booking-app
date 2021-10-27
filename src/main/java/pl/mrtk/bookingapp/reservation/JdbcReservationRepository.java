@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,11 +20,7 @@ import java.util.Set;
 @Repository
 public class JdbcReservationRepository implements ReservationRepository {
 
-    private final static Logger log = LoggerFactory.getLogger(JdbcReservationRepository.class);
-
-    private static final String DB_URL = "jdbc:mysql://localhost/bookingapp";
-    private static final String DB_USER = "admin";
-    private static final String DB_PASSWORD = "admin-pass";
+    private static final Logger log = LoggerFactory.getLogger(JdbcReservationRepository.class);
 
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_DATE_TIME = "date_time";
@@ -33,9 +30,16 @@ public class JdbcReservationRepository implements ReservationRepository {
     private final static String SQL_INSERT = String.format("INSERT INTO reservations (%s, %s, %s) VALUES (?, ?, ?)",
             COLUMN_NAME, COLUMN_DATE_TIME, COLUMN_CREATION_TIMESTAMP);
 
+    private final DataSource dataSource;
+
+    public JdbcReservationRepository(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
     @Override
     public void add(ReservationData reservationData) {
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
+        try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL_INSERT)) {
             preparedStatement.setString(1, reservationData.getName());
             preparedStatement.setObject(2, reservationData.getDateTime());
@@ -48,7 +52,7 @@ public class JdbcReservationRepository implements ReservationRepository {
 
     @Override
     public Set<ReservationDto> getAll() {
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(SQL_QUERY_ALL)) {
             Set<ReservationDto> reservations = new HashSet<>();
