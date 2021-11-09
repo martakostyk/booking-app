@@ -17,6 +17,6 @@ class ReservationServiceTest {
         service.createReservation(reservationData);
 
         // then
-        Mockito.verify(repository, Mockito.times(1)).add(reservationData);
+        Mockito.verify(repository, Mockito.times(2)).add(reservationData);
     }
 }
