@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'pmd'
+    id 'checkstyle'
 }
 
 group 'pl.mrtk'
@@ -62,3 +64,14 @@ jacocoTestCoverageVerification {
 
 check.dependsOn jacocoTestCoverageVerification
 
+pmd {
+    consoleOutput = true
+    ignoreFailures = true // for now, should be removed and proper rule sets should be added
+    sourceSets = [sourceSets.main]
+    toolVersion = '6.40.0'
+}
+
+checkstyle {
+    configFile = rootProject.file('checkstyle/checkstyle.xml')
+    ignoreFailures = true
+}

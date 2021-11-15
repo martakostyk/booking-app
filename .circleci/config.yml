@@ -44,13 +44,21 @@ jobs:
 
       - run: ./gradlew clean build
 
-      - store_test_results:
+      - store_test_results: # required to be able to see test result in Tests section
           path: build/test-results
 
-      - store_artifacts:
+      - store_artifacts: # saving Test execution reports to the Artifacts section
           path: build/reports/tests/test
           destination: test_result
 
-      - store_artifacts:
+      - store_artifacts: # saving Jacoco reports to the Artifacts section
           path: build/reports/jacoco
           destination: test_coverage
+
+      - store_artifacts: # saving PMD reports to the Artifacts section
+          path: build/reports/pmd
+          destination: pmd
+
+      - store_artifacts: # saving Checkstyle reports to the Artifacts section
+          path: build/reports/checkstyle
+          destination: checkstyle
