@@ -26,3 +26,13 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Main-Class': 'pl.mrtk.bookingapp.BookingApp'
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

@@ -2,11 +2,9 @@ package pl.mrtk.bookingapp.reservation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +15,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository
 public class JdbcReservationRepository implements ReservationRepository {
 
     private static final Logger log = LoggerFactory.getLogger(JdbcReservationRepository.class);
