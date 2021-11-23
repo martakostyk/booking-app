@@ -1,4 +1,7 @@
-package pl.mrtk.bookingapp.reservation;
+package pl.mrtk.bookingapp.db;
+
+import pl.mrtk.bookingapp.reservation.ReservationData;
+import pl.mrtk.bookingapp.reservation.ReservationDto;
 
 import java.util.Set;
 

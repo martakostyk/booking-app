@@ -1,7 +1,10 @@
-package pl.mrtk.bookingapp.reservation;
+package pl.mrtk.bookingapp.db;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pl.mrtk.bookingapp.reservation.ImmutableReservationDto;
+import pl.mrtk.bookingapp.reservation.ReservationData;
+import pl.mrtk.bookingapp.reservation.ReservationDto;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

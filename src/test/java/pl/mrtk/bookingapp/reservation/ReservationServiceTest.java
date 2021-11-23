@@ -2,6 +2,7 @@ package pl.mrtk.bookingapp.reservation;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pl.mrtk.bookingapp.db.ReservationRepository;
 
 class ReservationServiceTest {
 

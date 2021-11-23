@@ -1,6 +1,7 @@
 package pl.mrtk.bookingapp.reservation;
 
 import org.springframework.stereotype.Service;
+import pl.mrtk.bookingapp.db.ReservationRepository;
 
 import java.util.Set;
 
