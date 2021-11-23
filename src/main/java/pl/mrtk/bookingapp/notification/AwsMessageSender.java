@@ -25,6 +25,6 @@ public class AwsMessageSender implements MessageSender {
     public void send(String message) {
         Map<String, Object> headers = Map.of("message-group-id", MESSAGE_GROUP_ID);
         messagingTemplate.convertAndSend(TOPIC_NAME, message, headers);
-        log.info("Message has been published to Amazon SNS topic [{}]", TOPIC_NAME);
+        log.info("Message has been published to Amazon SNS topic '{}'", TOPIC_NAME);
     }
 }
