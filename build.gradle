@@ -50,28 +50,29 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                counter = 'LINE'
-                value = 'COVEREDRATIO'
-                minimum = 0.1 // to be increased
-            }
-        }
-    }
-}
+//jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            limit {
+//                counter = 'LINE'
+//                value = 'COVEREDRATIO'
+//                minimum = 0.6 // to be increased
+//            }
+//        }
+//    }
+//}
 
-check.dependsOn jacocoTestCoverageVerification
+//check.dependsOn jacocoTestCoverageVerification
 
 pmd {
-    consoleOutput = true
-    ignoreFailures = true // for now, should be removed and proper rule sets should be added
+    consoleOutput = false
+    ignoreFailures = true
     sourceSets = [sourceSets.main]
     toolVersion = '6.40.0'
 }
 
 checkstyle {
-    configFile = rootProject.file('checkstyle/checkstyle.xml')
     ignoreFailures = true
+    showViolations = false
+    configFile = rootProject.file('checkstyle/checkstyle.xml')
 }
