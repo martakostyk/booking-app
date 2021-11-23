@@ -9,6 +9,11 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 dependencies {
     annotationProcessor('org.immutables:value:2.8.8')
     implementation ('org.springframework.boot:spring-boot-starter-web:2.5.5') {
