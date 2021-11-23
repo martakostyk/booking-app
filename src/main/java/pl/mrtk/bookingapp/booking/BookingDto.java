@@ -1,14 +1,14 @@
-package pl.mrtk.bookingapp.reservation;
+package pl.mrtk.bookingapp.booking;
 
 import org.immutables.value.Value;
 
 import java.time.LocalDateTime;
 
 @Value.Immutable
-public interface Reservation {
+public interface BookingDto {
 
-    long getId();
     String getName();
     LocalDateTime getDateTime();
     LocalDateTime getCreationTimestamp();
+
 }

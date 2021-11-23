@@ -1,11 +1,11 @@
-package pl.mrtk.bookingapp.reservation;
+package pl.mrtk.bookingapp.booking;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.immutables.value.Value;
 
 @Value.Immutable
-@JsonDeserialize(as = ImmutableReservationData.class)
-public interface ReservationData {
+@JsonDeserialize(as = ImmutableBookingData.class)
+public interface BookingData {
 
     String getName();
     String getDateTime();

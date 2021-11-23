@@ -16,4 +16,17 @@ services:
       - '${TMP_DIR}/mysql:/var/lib/mysql'
       - './db/schema.sql:/docker-entrypoint-initdb.d/1.sql'
       - './db/testData.sql:/docker-entrypoint-initdb.d/2.sql'
-
+  localstack:
+    container_name: 'booking-system-localstack'
+    image: localstack/localstack:0.12.16
+    restart: always
+    ports:
+      - '4566:4566'
+    environment:
+      DEFAULT_REGION: eu-west-2
+      SERVICES: sqs, sns
+      DATA_DIR: /tmp/localstack/data
+    volumes:
+      - '${TMP_DIR}/localstack:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './localstack/setup.sh:/docker-entrypoint-initaws.d/1.sh'
