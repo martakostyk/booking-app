@@ -71,13 +71,13 @@ jar {
 
 pmd {
     consoleOutput = false
-    ignoreFailures = true
     sourceSets = [sourceSets.main]
     toolVersion = '6.40.0'
+    ruleSets = []
+    ruleSetFiles = files('static-analysis/pmd.xml')
 }
 
 checkstyle {
-    ignoreFailures = true
     showViolations = false
-    configFile = rootProject.file('checkstyle/checkstyle.xml')
+    configFile = rootProject.file('static-analysis/checkstyle.xml')
 }

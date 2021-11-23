@@ -26,8 +26,8 @@ public class JdbcBookingRepository implements BookingRepository {
     private static final String COLUMN_DATE_TIME = "date_time";
     private static final String COLUMN_CREATION_TIMESTAMP = "creation_timestamp";
 
-    private final static String SQL_QUERY_ALL = "SELECT * FROM bookings";
-    private final static String SQL_INSERT = String.format("INSERT INTO bookings (%s, %s, %s) VALUES (?, ?, ?)",
+    private static final String SQL_QUERY_ALL = "SELECT * FROM bookings";
+    private static final String SQL_INSERT = String.format("INSERT INTO bookings (%s, %s, %s) VALUES (?, ?, ?)",
             COLUMN_NAME, COLUMN_DATE_TIME, COLUMN_CREATION_TIMESTAMP);
 
     private final DataSource dataSource;

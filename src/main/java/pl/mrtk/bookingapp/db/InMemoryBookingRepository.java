@@ -2,7 +2,11 @@ package pl.mrtk.bookingapp.db;
 
 
 import org.springframework.stereotype.Repository;
-import pl.mrtk.bookingapp.booking.*;
+import pl.mrtk.bookingapp.booking.Booking;
+import pl.mrtk.bookingapp.booking.BookingData;
+import pl.mrtk.bookingapp.booking.BookingDto;
+import pl.mrtk.bookingapp.booking.ImmutableBooking;
+import pl.mrtk.bookingapp.booking.ImmutableBookingDto;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
